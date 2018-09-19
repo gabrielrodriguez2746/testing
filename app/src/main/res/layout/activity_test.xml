@@ -7,15 +7,16 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="188dp"
+        android:background="#FFFFFF"
         android:fitsSystemWindows="false">
 
         <com.example.developer.myapplication.CollapsibleConstrainLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             android:minHeight="?android:attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed"
-            android:layout_height="match_parent" />
+            app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed" />
 
     </android.support.design.widget.AppBarLayout>
 

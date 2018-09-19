@@ -4,14 +4,14 @@ import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.support.design.widget.AppBarLayout
-import android.support.transition.TransitionManager
 import android.util.AttributeSet
+import android.view.View
 
 class CollapsibleConstrainLayout @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr), AppBarLayout.OnOffsetChangedListener {
 
-    private val transitionThreshold = 0.35f
+    private val transitionThreshold = 0.55f
     private var lastPosition = 0
     private var isToolbarOpen = true
 
@@ -23,8 +23,7 @@ class CollapsibleConstrainLayout @JvmOverloads constructor(
     }
 
     init {
-        openToolbarSet.applyTo(this)
-        TransitionManager.beginDelayedTransition(this)
+        View.inflate(context, R.layout.layout_scheleton_open, this)
     }
 
     override fun onAttachedToWindow() {
@@ -43,11 +42,9 @@ class CollapsibleConstrainLayout @JvmOverloads constructor(
 
             if (isToolbarOpen && progress > transitionThreshold) {
                 closedToolbarSet.applyTo(this)
-                TransitionManager.beginDelayedTransition(this)
                 isToolbarOpen = false
             } else if (!isToolbarOpen && progress < transitionThreshold) {
                 openToolbarSet.applyTo(this)
-                TransitionManager.beginDelayedTransition(this)
                 isToolbarOpen = true
             }
         }

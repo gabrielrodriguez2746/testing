@@ -22,10 +22,6 @@ class CollapsibleConstrainLayout @JvmOverloads constructor(
         clone(context, R.layout.layout_closed)
     }
 
-    init {
-        View.inflate(context, R.layout.layout_scheleton_open, this)
-    }
-
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         (parent as? AppBarLayout)?.addOnOffsetChangedListener(this)

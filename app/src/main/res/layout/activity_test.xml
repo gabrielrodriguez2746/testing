@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="188dp"
             android:background="#FFFFFF"
-            android:fitsSystemWindows="false">
+            android:fitsSystemWindows="false"
+            app:elevation="0dp">
 
             <com.example.developer.myapplication.CollapsibleConstrainLayout
                 android:layout_width="match_parent"
@@ -31,9 +32,6 @@
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    app:navigation_color="@{ @color/text_color_primary }"
-                    app:navigation_icon="@{ @drawable/ic_arrow_back_white_24dp }"
-                    app:on_navigationClicked="@{ viewModel.itemsClickedSubject }"
                     android:layout_height="?android:attr/actionBarSize"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -179,6 +177,66 @@ Etiam faucibus est id quam eleifend gravida. Vestibulum quis risus quis ipsum ru
 Fusce eu nulla dictum, vehicula est in, consequat mi. Integer eget quam egestas, posuere ipsum non, interdum magna. Donec ornare fringilla auctor. Integer nec ornare libero. Suspendisse finibus magna at placerat vehicula. Duis commodo sem vel nibh bibendum, a bibendum neque malesuada. Nunc blandit sem et feugiat commodo. Proin vel neque interdum, faucibus magna ut, ultricies magna. Ut molestie, lacus id porta vestibulum, elit urna porttitor neque, vitae tempor dui velit quis massa. Proin interdum eget leo eu pellentesque." />
 
         </android.support.v4.widget.NestedScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout_background"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="#66000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <View
+                    android:id="@+id/layout_info_container"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="184dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="168dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="64dp"
+                    android:gravity="center"
+                    android:text="Información de costo"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="28sp"
+                    app:autoSizeMinTextSize="28sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:layout_constraintEnd_toEndOf="@id/layout_info_container"
+                    app:layout_constraintHeight_percent="0.05"
+                    app:layout_constraintStart_toStartOf="@+id/layout_info_container"
+                    app:layout_constraintTop_toTopOf="@+id/layout_info_container" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="0dp"
+                    android:text="Genial"
+                    app:layout_constraintEnd_toEndOf="@id/layout_info_container"
+                    app:layout_constraintStart_toStartOf="@+id/layout_info_container"
+                    app:layout_constraintBottom_toBottomOf="@+id/layout_info_container"
+                    android:layout_height="wrap_content" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>

@@ -13,11 +13,4 @@ object BindingModule {
         return "RappiRappi"
     }
 
-    @Provides
-    @Copy
-    @JvmStatic
-    fun provideDataBinding(@Copy copy: String): BindingAdapterProject {
-        return BindingAdapterProject(copy)
-    }
-
 }

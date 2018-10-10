@@ -6,21 +6,26 @@ import android.support.constraint.ConstraintSet
 import android.support.transition.TransitionManager
 import android.support.v7.app.AppCompatActivity
 import com.example.developer.myapplication.databinding.ActivityTestBinding
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class TestActivity : AppCompatActivity() {
 
     private var isDialogOpened = false
 
-    private val binding by lazy {
-        DataBindingUtil.setContentView<ActivityTestBinding>(this, R.layout.activity_test)
-    }
+    private lateinit var binding: ActivityTestBinding
 
     private val viewModel by lazy {
         TestViewModel()
     }
 
+    @Inject
+    lateinit var app: MyApplication
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_test, app.getComponent())
         binding.viewModel = viewModel
         binding.layoutInformation.setOnClickListener {
 

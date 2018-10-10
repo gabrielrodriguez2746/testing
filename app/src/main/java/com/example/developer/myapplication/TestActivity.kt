@@ -20,12 +20,12 @@ class TestActivity : AppCompatActivity() {
     }
 
     @Inject
-    lateinit var app: MyApplication
+    lateinit var bindingInterface: ProjectBindingInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_test, app.getComponent())
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_test, bindingInterface)
         binding.viewModel = viewModel
         binding.layoutInformation.setOnClickListener {
 

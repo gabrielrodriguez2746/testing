@@ -4,13 +4,13 @@
     package="com.example.developer.myapplication">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".MyApplication"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".TestActivity"
@@ -25,10 +25,14 @@
 
         <activity
             android:name=".TestActivityV2"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".TestConstraintActivity"
+        <activity
+            android:name=".TestConstraintActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".PageActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
@@ -36,6 +40,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
     </application>

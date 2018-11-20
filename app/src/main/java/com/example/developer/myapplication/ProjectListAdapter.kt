@@ -20,7 +20,6 @@ class ProjectListAdapter<T : RecyclerItem<*>, S : ProjectRecyclerView<*>>(
         getItem(position)?.let {
             view.bind(it.getContent(), position)
         }
-
     }
 
     override fun getItemViewType(position: Int): Int {

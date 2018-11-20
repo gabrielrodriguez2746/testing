@@ -6,10 +6,10 @@ import javax.inject.Inject
 class TestRepository @Inject constructor() {
 
     fun getItems(index: Int) : Single<List<String>> {
-        return if (index == 3) {
+        return if (index == 20) {
             Single.just(emptyList())
         } else {
-            Single.just(listOf("A", "B", "C", "D", "E"))
+            Single.just(listOf("ANABEL", "BRAULIO", "CARLOS", "DIEGO", "ESTEBAN"))
         }
     }
 }

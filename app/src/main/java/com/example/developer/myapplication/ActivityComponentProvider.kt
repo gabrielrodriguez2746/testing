@@ -9,7 +9,7 @@ abstract class ActivityComponentProvider {
     @ContributesAndroidInjector
     abstract fun bindActivity(): TestActivity
 
-    @ContributesAndroidInjector(modules = [FetchDataDependencies::class])
+    @ContributesAndroidInjector
     abstract fun bindPgingACtivity(): PageActivity
 
 }

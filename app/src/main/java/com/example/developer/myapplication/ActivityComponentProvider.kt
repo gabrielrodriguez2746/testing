@@ -9,7 +9,16 @@ abstract class ActivityComponentProvider {
     @ContributesAndroidInjector
     abstract fun bindActivity(): TestActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [FragmentComponentProvider::class])
     abstract fun bindPgingACtivity(): PageActivity
+
+}
+
+
+@Module
+abstract class FragmentComponentProvider {
+
+    @ContributesAndroidInjector
+    abstract fun bindFragment(): MenuFragment
 
 }

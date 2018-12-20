@@ -1,7 +1,7 @@
-# Rappi base image relays on Android build env from Uber
+# Test base image relays on Android build env from Uber
 FROM uber/android-build-environment:latest
 
-LABEL Description="This base image is used to build and test Rappi Android app" Vendor="Rappi Inc" Version="0.1"
+LABEL Description="This base image is used to build and test Test Android app" Vendor="Test Inc" Version="0.1"
 
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8

@@ -1,6 +1,6 @@
 #!groovy
 node {
-  def flow = load "/scripts/util.groovy"
+  def flow = load "/data/scripts/workflow-util.groovy"
   flow.init()
 
   flow.wstage("Images", {

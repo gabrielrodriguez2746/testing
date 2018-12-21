@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 28
@@ -38,6 +39,11 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:2.16"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Crashlytics
+    implementation("com.crashlytics.sdk.android:crashlytics:2.7.1@aar") {
+        transitive = true
+    }
 
     kapt 'com.google.dagger:dagger-compiler:2.16'
     kapt "com.google.dagger:dagger-android-processor:2.16"

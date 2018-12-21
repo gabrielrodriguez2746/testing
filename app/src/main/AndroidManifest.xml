@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.developer.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -42,6 +44,10 @@
             </intent-filter>
 
         </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d4313a8130b1fc3a3c6e33d42528d471bcb7945d" />
 
     </application>
 

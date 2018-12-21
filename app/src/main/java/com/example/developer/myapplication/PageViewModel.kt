@@ -1,6 +1,6 @@
 package com.example.developer.myapplication
 
-import android.arch.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleObserver
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package com.example.developer.myapplication
 
-import android.databinding.DataBindingComponent
+import androidx.databinding.DataBindingComponent
 import javax.inject.Inject
 
 class ProjectBindingInterface @Inject constructor(

@@ -1,7 +1,7 @@
 package com.example.developer.myapplication
 
 import android.annotation.SuppressLint
-import android.arch.paging.PageKeyedDataSource
+import androidx.paging.PageKeyedDataSource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.internal.disposables.DisposableContainer

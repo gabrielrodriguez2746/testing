@@ -1,6 +1,6 @@
 package com.example.developer.myapplication
 
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 import android.widget.TextView
 import javax.inject.Inject
 

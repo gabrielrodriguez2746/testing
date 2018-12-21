@@ -1,7 +1,7 @@
 package com.example.developer.myapplication
 
-import android.arch.paging.DataSource
-import android.arch.paging.PageKeyedDataSource
+import androidx.paging.DataSource
+import androidx.paging.PageKeyedDataSource
 import javax.inject.Inject
 
 class FetchDataFactory @Inject constructor(

@@ -1,9 +1,9 @@
 package com.example.developer.myapplication
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
-import android.support.constraint.ConstraintSet
-import android.support.design.widget.AppBarLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
+import com.google.android.material.appbar.AppBarLayout
 import android.util.AttributeSet
 import android.view.View
 

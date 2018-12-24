@@ -11,4 +11,4 @@
 .externalNativeBuild
 fabric.properties
 *.apk
-/output.json
+app/release/*

@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
 apply from: "$project.rootDir/versioning.gradle"
+apply from: "$project.rootDir/deploy-fabric.gradle"
 
 android {
 
@@ -25,6 +26,7 @@ android {
         }
 
         release {
+            ext.betaDistributionGroupAliases = "testers"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

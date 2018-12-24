@@ -1,33 +1,13 @@
 def GROUP_NAME = "FabricDeploy"
 
-task buildDebugCandidateUser() {
+task buildReleaseCandidateUser() {
     group = GROUP_NAME
     dependsOn 'app:clean'
-    finalizedBy 'app:assembleDevQa'
+    finalizedBy 'app:assembleDebug'
 }
 
-task sendDebugCandidateUserToCrashlytics() {
+task sendReleaseCandidateUserToCrashlytics() {
     group = GROUP_NAME
-    dependsOn buildDebugCandidateUser
-    finalizedBy ':app:crashlyticsUploadDistributionDevQa'
-}
-
-task buildProdCandidateUser() {
-    group = GROUP_NAME
-    dependsOn 'app:clean'
-    finalizedBy 'app:assembleProdQa'
-}
-
-task sendProdCandidateUserToCrashlytics() {
-    group = GROUP_NAME
-    dependsOn buildProdCandidateUser
-    finalizedBy ':app:crashlyticsUploadDistributionProdQa'
-}
-
-task downloadFile << {
-    def f = new File('app/keystore.jks')
-    if (!f.exists()) {
-        new URL(url).withInputStream { i -> f.withOutputStream { it << i } }
-    }
-    print f.getAbsolutePath()
+    dependsOn buildReleaseCandidateUser
+    finalizedBy ':app:crashlyticsUploadDistributionDebug'
 }

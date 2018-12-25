@@ -61,7 +61,7 @@ private void createCommitForVersion(String versionName, String versionCode, Stri
 
 private void pushChanges() {
     def branchName = getCurrentBranch()
-    Process pushChanges = ['git', 'push', "origin", branchName].execute(null, project.rootDir)
+    Process pushChanges = ['git', 'push', "upstream", branchName].execute(null, project.rootDir)
     pushChanges.waitForProcessOutput(System.out, System.err)
 }
 

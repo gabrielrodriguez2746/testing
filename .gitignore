@@ -12,3 +12,4 @@
 fabric.properties
 *.apk
 app/release/*
+signing.properties

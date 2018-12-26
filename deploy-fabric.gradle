@@ -11,3 +11,14 @@ task sendReleaseCandidateUserToCrashlytics() {
     dependsOn buildReleaseCandidateUser
     finalizedBy 'crashlyticsUploadDistributionRelease'
 }
+
+task downloadFile << {
+    def f = new File('app/keystore.jks')
+    if (!f.exists()) {
+        println "File does not exist"
+        new URL(url).withInputStream { i -> f.withOutputStream { it << i } }
+    } else {
+        println "File path ${f.getAbsolutePath().toString().trim()}"
+    }
+    print f.getAbsolutePath()
+}

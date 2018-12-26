@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'io.fabric'
 apply from: "$project.rootDir/versioning.gradle"
 apply from: "$project.rootDir/deploy-fabric.gradle"
+apply from: "$project.rootDir/script-signing.gradle"
 
 android {
 

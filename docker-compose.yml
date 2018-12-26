@@ -5,10 +5,10 @@ services:
       context: .
       args:
         MY_USER: ${MY_USER:-root}
-#    volumes:
-#    - ${MY_WORKSPACE}:/ws
+    volumes:
+    - ${MY_WORKSPACE}:/ws
     working_dir: /ws${WORKSPACE_PATH:-/}
     user: ${MY_USER:-root}
     command: >
       sh -c "echo "sdk.dir=/usr/local/android-sdk" > local.properties &&
-             ./build.sh"
+             ./gradlew sendReleaseCandidateUserToCrashlytics"

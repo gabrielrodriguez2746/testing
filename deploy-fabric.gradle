@@ -2,12 +2,12 @@ def GROUP_NAME = "FabricDeploy"
 
 task buildReleaseCandidateUser() {
     group = GROUP_NAME
-    dependsOn 'app:clean'
-    finalizedBy 'app:assembleRelease'
+    dependsOn 'clean'
+    finalizedBy 'assembleRelease'
 }
 
 task sendReleaseCandidateUserToCrashlytics() {
     group = GROUP_NAME
     dependsOn buildReleaseCandidateUser
-    finalizedBy ':app:crashlyticsUploadDistributionRelease'
+    finalizedBy 'crashlyticsUploadDistributionRelease'
 }

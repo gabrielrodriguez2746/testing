@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.developer.myapplication.PageViewModel" />
+            type="com.project.developer.myapplication.PageViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

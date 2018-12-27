@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.developer.myapplication">
+    package="com.project.developer.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.project.developer.myapplication.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,26 +15,26 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".TestActivity"
+            android:name="com.project.developer.myapplication.TestActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
 
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.project.developer.myapplication.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".TestActivityV2"
+            android:name="com.project.developer.myapplication.TestActivityV2"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".TestConstraintActivity"
+            android:name="com.project.developer.myapplication.TestConstraintActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".PageActivity"
+            android:name="com.project.developer.myapplication.PageActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>

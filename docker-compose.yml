@@ -11,4 +11,5 @@ services:
     user: ${MY_USER:-root}
     command: >
       sh -c "echo "sdk.dir=/usr/local/android-sdk" > local.properties &&
+              ./gradlew incrementVersionCode &&
              ./gradlew sendReleaseCandidateUserToCrashlytics"

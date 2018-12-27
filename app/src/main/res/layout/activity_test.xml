@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.developer.myapplication.TestViewModel" />
+            type="com.project.developer.myapplication.TestViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -22,7 +22,7 @@
             android:fitsSystemWindows="false"
             app:elevation="0dp">
 
-            <com.example.developer.myapplication.CollapsibleConstrainLayout
+            <com.project.developer.myapplication.CollapsibleConstrainLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -124,7 +124,7 @@
 
                 </FrameLayout>
 
-            </com.example.developer.myapplication.CollapsibleConstrainLayout>
+            </com.project.developer.myapplication.CollapsibleConstrainLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
 

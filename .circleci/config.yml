@@ -1,29 +1,84 @@
+# Java Gradle CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+
 version: 2
+
+config_android: &config_android
+  docker:
+  - image: circleci/android:api-28-alpha
+  parallelism: 1
+  resource_class: xlarge
+  working_directory: ~/circlci
+  environment:
+    GRADLE_OPTS: "-Xmx8192m -Dorg.gradle.daemon=false"
+    JVM_OPTS: "-Xmx8192m"
+    TERM: dumb
+
+gen_cache_key: &gen_cache_key
+  run:
+    name: Generate cache key
+    command: ./checksum.sh /tmp/checksum.txt
+
+restore_cache: &restore_cache
+  restore_cache:
+    key: gradle-{{ checksum "/tmp/checksum.txt" }}
+
+save_cache: &save_cache
+  save_cache:
+    paths:
+    - ~/.gradle/caches
+    - ~/.gradle/wrapper
+    key: gradle-{{ checksum "/tmp/checksum.txt" }}
+
+attach_workspace: &attach_workspace
+  attach_workspace:
+    at: ~/circlci
+
 jobs:
-  build:
-    working_directory: ~/code
-    docker:
-    - image: circleci/android:api-28-alpha
-    environment:
-      JVM_OPTS: -Xmx3200m
+
+  config_cache:
+    <<: *config_android
     steps:
     - checkout
-    - restore_cache:
-        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-    #      - run:
-    #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-    #         command: sudo chmod +x ./gradlew
+    - <<: *gen_cache_key
+    - <<: *restore_cache
     - run:
         name: Download Dependencies
         command: ./gradlew androidDependencies
-    - save_cache:
-        paths:
-        - ~/.gradle
-        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+    - <<: *save_cache
+
+  android_lint:
+    <<: *config_android
+    steps:
+    - checkout
+    - <<: *attach_workspace
+    - <<: *gen_cache_key
+    - <<: *restore_cache
     - run:
-        name: Compile the app
-        command: ./gradlew :app:assembleDebug
-    - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-        path: app/build/outputs/apk/
-        destination: apks/
-    # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+        name: Run Android Lint
+        command: ./gradlew lintDebug
+
+  unit_tests:
+    <<: *config_android
+    steps:
+    - checkout
+    - <<: *attach_workspace
+    - <<: *gen_cache_key
+    - <<: *restore_cache
+    - run:
+        name: Run Unit Tests
+        command: ./gradlew testDebugUnitTest
+
+workflows:
+  version: 2
+  check:
+    jobs:
+    - config_cache
+    - android_lint:
+        requires:
+        - config_cache
+    - unit_tests:
+        requires:
+        - config_cache
